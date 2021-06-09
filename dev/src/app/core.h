@@ -4,3 +4,5 @@
 #else
 	#define SGAPI _declspec(dllimport)
 #endif // FUNNY_DLL_BUILD
+
+ 

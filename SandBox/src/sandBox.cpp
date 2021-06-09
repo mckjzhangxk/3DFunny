@@ -10,10 +10,7 @@ private:
 
 };
 
-
-int main() {
-
-	SandBoxApp* app = new SandBoxApp();
-	app->run();
-	delete app;
+sugar::Application* sugar::createApplication() {
+	return new SandBoxApp();
 }
+

@@ -9,9 +9,11 @@ namespace sugar {
 
 		void run();
 		virtual ~Application(){};
-		 
-	};
+		
 
+	};
+	//用户端定义
+	Application* createApplication();
 }
  
 

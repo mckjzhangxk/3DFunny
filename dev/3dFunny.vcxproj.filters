@@ -3,9 +3,12 @@
   <ItemGroup>
     <ClCompile Include="src\app\Application.cpp" />
     <ClCompile Include="src\app\core.h" />
+    <ClCompile Include="src\app\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app\Application.h" />
     <ClInclude Include="src\engine.h" />
+    <ClInclude Include="src\app\EntryPoint.h" />
+    <ClInclude Include="src\app\Log.h" />
   </ItemGroup>
 </Project>

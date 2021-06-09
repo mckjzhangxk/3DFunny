@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\app\Log.cpp" />
     <ClCompile Include="src\app\Application.cpp" />
     <ClCompile Include="src\app\core.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\app\Log.h" />
     <ClInclude Include="src\app\Application.h" />
+    <ClInclude Include="src\app\EntryPoint.h" />
     <ClInclude Include="src\engine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -128,6 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FUNNY_DLL_BUILD</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dev\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +146,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FUNNY_DLL_BUILD</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)dev\vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
