@@ -7,7 +7,7 @@ namespace sugar {
 	public:
 		Application() {};
 
-		void run();
+		virtual void run();
 		virtual ~Application(){};
 		
 
