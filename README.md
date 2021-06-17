@@ -1,1 +1,2 @@
 # 3DFunny
+IF EXIST ..\bin\Debug-windows-x86_64\3DFunny\3DFunny.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\3DFunny\3DFunny.dll ..\bin\Debug-windows-x86_64\SandBox > nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\3DFunny\3DFunny.dll ..\bin\Debug-windows-x86_64\SandBox > nul)
