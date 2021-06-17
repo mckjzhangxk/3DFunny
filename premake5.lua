@@ -5,39 +5,40 @@ workspace("3DFunny")
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "3DFunny"
-   location "dev"
-   kind "SharedLib"
-   language "C++"
-   targetdir ("bin/".. outputdir.."/%{prj.name}")
-   objdir ("bin-int/" .. outputdir.."/%{prj.name}")
-  
-   files { "dev/src/**.h", "dev/src/**.cpp" }
-
-   includedirs {"dev/vendor/spdlog/include"}
-
-   -- for windows only
-   filter("system:windows")
-      cppdialect "C++17"
-      staticruntime "On"
-      systemversion "10"
-
-      defines {"FUNNY_DLL_BUILD"}
-
-      --post build
-      postbuildcommands {
-         ("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir .."/SandBox")
-      }
-   filter("configurations:Debug")
-      defines { "SG_DEBUG" }
-      symbols "On"
-
-   filter("configurations:Release")
-      defines { "SG_RELEASE" }
-      optimize "On"
+      location "dev"
+      kind "SharedLib"
+      language "C++"
+      targetdir ("bin/".. outputdir.."/%{prj.name}")
+      objdir ("bin-int/" .. outputdir.."/%{prj.name}")
+     
+      files { "dev/src/**.h", "dev/src/**.cpp" }
    
-   filter("configurations:Dist")
-      defines { "SG_DIST" }
-      optimize "On"
+      includedirs {"dev/vendor/spdlog/include"}
+   
+      -- for windows only
+      filter("system:windows")
+         cppdialect "C++17"
+         staticruntime "On"
+         systemversion "10"
+   
+         defines {"FUNNY_DLL_BUILD"}
+   
+         --post build
+         postbuildcommands {
+            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir .."/SandBox")
+         }
+      filter("configurations:Debug")
+         defines { "SG_DEBUG" }
+         symbols "On"
+   
+      filter("configurations:Release")
+         defines { "SG_RELEASE" }
+         optimize "On"
+      
+      filter("configurations:Dist")
+         defines { "SG_DIST" }
+         optimize "On"
+         
 
 project "SandBox"
    location "SandBox"
@@ -75,3 +76,4 @@ project "SandBox"
    filter("configurations:Dist")
       defines { "SG_DIST" }
       optimize "On"
+
