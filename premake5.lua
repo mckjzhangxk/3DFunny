@@ -2,7 +2,13 @@ workspace("3DFunny")
    architecture "x86_64"
    configurations { "Debug", "Release" ,"Dist"}
 
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+IncludeDirs={}
+IncludeDirs["GLFW"]="dev/vendor/GLFW/include"
+
+include("dev/vendor/GLFW")
 
 project "3DFunny"
       location "dev"
@@ -13,7 +19,10 @@ project "3DFunny"
      
       files { "dev/src/**.h", "dev/src/**.cpp" }
    
-      includedirs {"dev/vendor/spdlog/include"}
+      includedirs {
+         "dev/vendor/spdlog/include",
+         "${IncludeDirs.GLFW}"
+      }
    
       -- for windows only
       filter("system:windows")
@@ -27,6 +36,11 @@ project "3DFunny"
          postbuildcommands {
             ("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir .."/SandBox")
          }
+      links {
+         "GLFW",
+         "opengl32.lib"
+      }
+      
       filter("configurations:Debug")
          defines { "SG_DEBUG" }
          symbols "On"

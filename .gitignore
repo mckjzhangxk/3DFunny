@@ -4,3 +4,4 @@ bin-int/*
 *.vcxproj
 *.vcxproj.filter
 *.user
+*.sln
